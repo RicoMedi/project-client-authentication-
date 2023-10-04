@@ -18,6 +18,6 @@ const Logout = () => {
       });
   });
 
-  return <h3>You logged out</h3>;
+  return <h2>You Logged Out</h2>;
 };
 export default Logout;

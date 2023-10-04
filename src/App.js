@@ -5,7 +5,7 @@ import AddFriend from "./components/AddFriend";
 import Friends from "./components/Friends";
 import Logout from "./components/Logout";
 import { Routes, Route, Link } from "react-router-dom";
-import PrivateRoute from "./components/PrivateRoute";
+import PrivateWrapper from "./components/PrivateWrapper";
 
 function App() {
   return (
@@ -13,22 +13,22 @@ function App() {
       <header>
         <h1> FRIENDS DATABASE </h1>
         <nav>
-          <Link className="links" to="/login">
+          <Link className="links" to="login">
             {" "}
             Login{" "}
           </Link>{" "}
           &nbsp;
-          <Link className="links" to="/friends">
+          <Link className="links" to="friends">
             {" "}
             Friends{" "}
           </Link>{" "}
           &nbsp;
-          <Link className="links" to="/friends/add">
+          <Link className="links" to="friends/add">
             {" "}
             Add Friend{" "}
           </Link>{" "}
           &nbsp;
-          <Link className="links" to="/logout">
+          <Link className="links" to="logout">
             {" "}
             Log Out
           </Link>
@@ -38,9 +38,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
-        <PrivateRoute path="/friends" component={<Friends />} />
-        <Route path="/friends/add" element={<AddFriend />} />
-        <Route path="/logout" element={<Logout />} />
+        <Route path="/" element={PrivateWrapper}>
+          <Route path="/friends" element={<Friends />} />
+          <Route path="/friends/add" element={<AddFriend />} />
+          <Route path="/logout" element={<Logout />} />
+        </Route>
       </Routes>
     </div>
   );
