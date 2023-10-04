@@ -13,22 +13,22 @@ function App() {
       <header>
         <h1> FRIENDS DATABASE </h1>
         <nav>
-          <Link className="links" to="login">
+          <Link className="links" to="/login">
             {" "}
             Login{" "}
           </Link>{" "}
           &nbsp;
-          <Link className="links" to="friends">
+          <Link className="links" to="/friends">
             {" "}
             Friends{" "}
           </Link>{" "}
           &nbsp;
-          <Link className="links" to="friends/add">
+          <Link className="links" to="/friends/add">
             {" "}
             Add Friend{" "}
           </Link>{" "}
           &nbsp;
-          <Link className="links" to="logout">
+          <Link className="links" to="/logout">
             {" "}
             Log Out
           </Link>
@@ -41,8 +41,8 @@ function App() {
         <Route path="/" element={<PrivateWrapper />}>
           <Route path="/friends" element={<Friends />} />
           <Route path="/friends/add" element={<AddFriend />} />
-          <Route path="/logout" element={<Logout />} />
         </Route>
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </div>
   );

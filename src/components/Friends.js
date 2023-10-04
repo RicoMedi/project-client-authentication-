@@ -1,15 +1,18 @@
 /* eslint-disable react/jsx-key */
 import React, { useState, useEffect } from "react";
-
-import axiosWithAuth from "../utils/axiosWithAuth";
+import axios from "axios";
 
 const Friends = () => {
   const [friends, setFriends] = useState([]);
 
- 
   useEffect(() => {
-    axiosWithAuth()
-      .get("/friends")
+    const token = localStorage.getItem("token");
+    axios
+      .get("http://localhost:9000/api/friends", {
+        headers: {
+          authorization: token,
+        },
+      })
       .then((resp) => {
         setFriends(resp.data);
       })
@@ -22,9 +25,9 @@ const Friends = () => {
     <div className="friends-list">
       <h1>Friends</h1>
       <ul>
-        {friends.map((amigos, idx) => {
+        {friends.map((amigos, index) => {
           return (
-            <li key={idx} className="names">
+            <li key={index}>
               {amigos.name} - {amigos.age} - {amigos.email}
             </li>
           );
