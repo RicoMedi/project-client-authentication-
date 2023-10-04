@@ -36,9 +36,9 @@ function App() {
       </header>
 
       <Routes>
-        <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={PrivateWrapper}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<PrivateWrapper />}>
           <Route path="/friends" element={<Friends />} />
           <Route path="/friends/add" element={<AddFriend />} />
           <Route path="/logout" element={<Logout />} />

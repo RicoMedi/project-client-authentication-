@@ -85,3 +85,16 @@
 .form button:hover {
   background-color: #0056b3;
 }
+
+.friends-list{
+  margin: 50px 200px 50px 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  background-color: #f5f5f5;
+}
+.names{
+  font-size: 20px;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
 const AddFriend = () => {
@@ -20,8 +21,7 @@ const AddFriend = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axiosWithAuth
-      .post("http://localhost:9000/api/friends", form)
+    axiosWithAuth.post("/friends", form) 
       .then((res) => {
         navigate("/friends");
       })
